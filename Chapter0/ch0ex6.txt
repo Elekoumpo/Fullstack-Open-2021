@@ -1,0 +1,22 @@
+note over browser:
+Page is loaded, user types some text as input
+and click Save button 
+end note
+
+note over browser:
+only one request is sent to server
+and that is POST, to the adress 
+new_note_spa; this note contains JSON
+data containing both content and date
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over server:
+Server add req.body.note to 
+notes array and send code 201
+(which means created) and JSON file
+end note
+
+server-->browser: HTTP Status code 201, Created
+server-->browser: {"message":"note created"}
